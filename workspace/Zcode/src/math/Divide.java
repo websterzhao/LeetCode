@@ -20,4 +20,28 @@ public class Divide {
 	        }        
 	       	return neg?(int)-ret:(int)ret;       
 	    }
+	   public int divide2(int dividend, int divisor) {
+	        if(divisor==0) return Integer.MAX_VALUE;
+	        long ud=dividend<0?-(long)dividend:dividend;
+	        long udr=divisor<0?-(long)divisor:divisor;
+	        boolean neg = false;
+	        if(dividend<0&&divisor>0)
+	            neg= true;
+	        if(dividend>0&&divisor<0)
+	            neg = true;
+	        long ret=0;
+	        while(ud>=udr){
+	            long cur = udr;
+	            long temp = 1;
+	            while(cur<=ud){
+	               cur<<=1;
+	               temp<<=1;
+	            }
+	            ret+=temp>>1;
+	            ud-=cur>>1;
+	        }
+	        if(neg)
+	           ret = -ret;
+	        return (int) ret;
+	    }
 }

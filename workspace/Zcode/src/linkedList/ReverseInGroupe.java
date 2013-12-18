@@ -20,7 +20,7 @@ public class ReverseInGroupe {
              swap(nhead, n);
              if(ret==null)
             	 ret=cur;
-             else
+             if(prev!=null)
             	 prev.next=cur;
              prev=nhead;
              cur=temp;            

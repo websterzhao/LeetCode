@@ -27,4 +27,18 @@ public class InOrderTraversal {
 	       }
 	       return ret;
 	    }
+	 
+///////////////////////////////////////////////////////////////////////////	 
+  public ArrayList<Integer> inorderTraversal2(TreeNode root) {
+        ArrayList<Integer> ret= new ArrayList<Integer>();
+        inorder(root,ret);
+        return ret;
+    }
+    private void inorder(TreeNode root, ArrayList<Integer> ret){
+        if(root==null)
+            return;
+        inorder(root.left,ret);
+        ret.add(root.val);
+        inorder(root.right,ret);
+    }
 }

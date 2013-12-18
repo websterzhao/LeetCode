@@ -53,5 +53,16 @@ public class RemoveDuplicates {
 		}
 		return counter;
 	}
-    
+	   public int removeDuplicates3(int[] A) {
+	        if(A==null||A.length==0) return 0;
+	        int wr=0;
+	        int cnt=1;
+	        for(int i=1;i<A.length;i++){
+	            if(A[i]!=A[wr]){
+	                cnt++;
+	                A[++wr]=A[i];
+	            }
+	        }
+	        return cnt;
+	    }   
 }

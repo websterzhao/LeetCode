@@ -15,7 +15,7 @@ public class MergekSortedLists {
 		}
 		ListNode cur = null;
 		ListNode ret = null;
-		while (newlists.size() > 0) {
+		while (newlists.size() > 0) {  //do not use isnull judge
 			ListNode temp = newlists.get(0);
 			int min = 0;
 			for (int i = 1; i < newlists.size(); i++) {

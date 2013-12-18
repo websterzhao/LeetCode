@@ -17,17 +17,16 @@ public class SubsetsTwo {
 	  @SuppressWarnings("unchecked")
 	private void findSubset(int[] s, ArrayList<ArrayList<Integer>> ret, int index, ArrayList<Integer> temp) {
 		if(index==s.length){
-			if(!ret.contains(temp))
-			    ret.add((ArrayList<Integer>) temp.clone());
+			ret.add((ArrayList<Integer>) temp.clone());
 			return;
 		}
-		findSubset(s,ret,index+1,temp);
 		int cnt=1;
-     int i=index;
+       int i=index;
 		while(i+1<s.length&&s[i]==s[i+1]){
 			cnt++;
-         i++;
+           i++;
 		}
+		findSubset(s,ret,index+cnt,temp);
 		for(i= 0;i<cnt;i++){
 			temp.add(s[index]);
 			findSubset(s,ret,index+cnt,temp);

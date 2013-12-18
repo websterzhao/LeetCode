@@ -19,7 +19,21 @@ public class RemoveElements {
 		return ret;
 
 	}
-
+   public int removeElement1(int[] A, int elem) {
+	        int i=0;
+	        int j= A.length-1;
+	        int ret=A.length;
+	        while(i<=j){
+	            if(A[i]==elem){
+	                swap(A,i,j);
+	                j--;
+	                ret--;
+	            }
+	            else
+	                i++;
+	        }
+	        return ret;
+	    }
 	private void swap(int[] A, int i, int j) {
 		int temp = A[j];
 		A[j] = A[i];
