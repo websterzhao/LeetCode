@@ -5,22 +5,27 @@ import anode.TreeNode;
 
 public class UniqueBSTII {
 	public ArrayList<TreeNode> generateTrees(int n) {
-		ArrayList<TreeNode> ret = new ArrayList<TreeNode>();
-		if (n <= 0)
-			return ret;
-		for (int i = 1; i <= n; i++) {
-			TreeNode root = new TreeNode(i);
-			innrergentree(1, n, 1, root, ret);
-		}
-    //    return ret;
-	}
+        ArrayList<TreeNode> res = new ArrayList<TreeNode>();
+        generateTrees(res,1,n);
+        return res;                        
+    }
 
-	private void innrergentree(int beg, int end, int cur, TreeNode root,
-			ArrayList<TreeNode> ret) {
-		if (cur == end) {
-			ret.add(root);
-			return;
-		}
-
-	}
+    public void generateTrees(ArrayList<TreeNode> res,int left,int right){
+            if(left > right)
+                    res.add(null);
+            else
+                    for(int i=left;i<=right;i++){
+                            ArrayList<TreeNode> lefts = new ArrayList<TreeNode>();
+                            generateTrees(lefts,left,i-1);
+                            ArrayList<TreeNode> rights = new ArrayList<TreeNode>();
+                            generateTrees(rights,i+1,right);
+                            for(int x=0;x<lefts.size();x++)
+                                    for(int y=0;y<rights.size();y++){
+                                            TreeNode root = new TreeNode(i);
+                                            root.left = lefts.get(x);
+                                            root.right = rights.get(y);
+                                            res.add(root);
+                                    }
+                    }
+    }
 }
