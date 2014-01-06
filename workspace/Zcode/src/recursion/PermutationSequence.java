@@ -1,23 +1,21 @@
 package recursion;
 
 import java.util.ArrayList;
-/*
-Facing this kind of problem, just consider this is a similar one to the previous(see here), but need some modifications. 
-In this problem, what we need it to cut some of the subtrees.  e.g. 122
-                     122
-         /             |           \
-     122          212         X  (here because 2=2, we don't need to swap again)
-    /     \          /    \
- 122   X     212 221 
 
-So, if there exist same element after current swap, there there is no need to swap again.
-Details see code.
- */
-public class PermutationsII {
-	   public ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
+public class PermutationSequence {
+	   public String getPermutation(int n, int k) {
 	        ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
-	        perm(num,ret,0,num.length);
-	        return ret;
+	        int[] num= new int[n];
+	        for(int i=1;i<=n;i++){
+	            num[i-1]=i;
+	        }
+	        perm(num,ret,0,n);
+	        ArrayList<Integer> arry=ret.get(k-1);
+	        StringBuilder kkk=new StringBuilder();
+	        for(int i:arry){
+	            kkk.append((char)('0'+i));
+	        }
+	        return kkk.toString();
 	     }
 	     private void perm(int[] num, ArrayList<ArrayList<Integer>> ret, int i,int n){
 	         if(i==n){
@@ -47,5 +45,5 @@ public class PermutationsII {
 	         int temp=num[k];
 	         num[k]=num[i];
 	         num[i]= temp;
-	     }	     
+	     }
 }
