@@ -19,8 +19,8 @@ public class PermutationsII {
 	        perm(num,ret,0,num.length);
 	        return ret;
 	     }
-	     private void perm(int[] num, ArrayList<ArrayList<Integer>> ret, int i,int n){
-	         if(i==n){
+	     private void perm(int[] num, ArrayList<ArrayList<Integer>> ret, int beg,int end){
+	         if(beg==end){
 	             ArrayList<Integer> temp=new ArrayList<Integer>();
 	             for(int e:num){
 	                 temp.add(e);
@@ -28,24 +28,24 @@ public class PermutationsII {
 	             ret.add(temp);
 	             return;
 	         }
-	         for(int k=i;k<n;k++){
-	             if(needswap(num,i,k))  continue;
-	             swap(num,i,k);
-	             perm(num,ret,i+1,num.length);
-	             swap(num,i,k);
+	         for(int i=beg;i<end;i++){
+	             if(needswap(num,beg,i))  continue;
+	             swap(num,beg,i);
+	             perm(num,ret,beg+1,num.length);
+	             swap(num,beg,i);
 	         }
 	     }
-	     private boolean needswap(int[] num, int i, int k){
-	        for (int j=i;j<k;j++){
-	            if (num[j]==num[k]){
+	     private boolean needswap(int[] num, int beg, int end){
+	        for (int j=beg;j<end;j++){
+	            if (num[j]==num[end]){
 	                return true;
 	            }
 	        }
 	        return false;
 	     }
-	     private void swap(int[] num, int i, int k){
-	         int temp=num[k];
-	         num[k]=num[i];
-	         num[i]= temp;
+	     private void swap(int[] num, int m, int n){
+	         int temp=num[m];
+	         num[m]=num[n];
+	         num[n]= temp;
 	     }	     
 }
