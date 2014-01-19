@@ -21,7 +21,7 @@ public class RecoverBST {
            s.val = temp;
    }
 
-   public TreeNode inorder(TreeNode node, TreeNode prev){
+   public TreeNode inorder(TreeNode node, TreeNode prev){  //return the odd node
            if(node==null) return prev;
 
            TreeNode p = inorder(node.left,prev);
