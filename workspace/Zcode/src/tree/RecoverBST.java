@@ -11,8 +11,6 @@ public class RecoverBST {
        secondNode = null;
        inorder(root,null);
        swap(firstNode,secondNode);
-
-
    }
 
    public void swap(TreeNode f,TreeNode s){
@@ -21,11 +19,9 @@ public class RecoverBST {
            s.val = temp;
    }
 
-   public TreeNode inorder(TreeNode node, TreeNode prev){  //return the odd node
+   public TreeNode inorder(TreeNode node, TreeNode prev){  //return the prev node
            if(node==null) return prev;
-
            TreeNode p = inorder(node.left,prev);
-
            if(p!=null && p.val>node.val){
                    if(firstNode==null){
                            firstNode = p;
@@ -34,9 +30,7 @@ public class RecoverBST {
                    else
                            secondNode = node;
            }
-
            p = inorder(node.right,node);
-
            return p;
    }
 }
