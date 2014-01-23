@@ -17,8 +17,6 @@ public class PathSumTwo {
 
 	@SuppressWarnings("unchecked")
 	private void checkPath(TreeNode root, int sum, ArrayList<ArrayList<Integer>> ret, ArrayList<Integer> path) {
-		if(root==null)
-			return;
 		if(root.val==sum&&root.left==null&&root.right==null){
 			path.add(root.val);
 			ret.add((ArrayList<Integer>) path.clone());         //非常重要，需要用Clone
