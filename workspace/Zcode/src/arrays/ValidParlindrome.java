@@ -13,8 +13,8 @@ public class ValidParlindrome {
 	    if(next>=s.length) return true;
 	    boolean ret=checkPalindrome(s,val,next+1);
 	    if(!ret) return false;
-	    if(!Character.isLetterOrDigit(s[next]))
-       	 	return true;
+	    if(!Character.isLetterOrDigit(s[next]))  //go to the previous char
+      	 	return true;
 	    int i=val.start;
         while(i<s.length&&!Character.isLetterOrDigit(s[i])){
        	 i++;
@@ -24,6 +24,29 @@ public class ValidParlindrome {
 	    val.start++;
 		return true;
 	}
+	
+	public boolean isPalindrome2(String s) {
+        if(s.isEmpty()) return true;
+        char[] sc=s.toCharArray();
+        int l=0;
+        int r=sc.length-1;
+        while(l<r){
+            while(!Character.isLetterOrDigit(sc[l])&&l<r){
+                l++;
+            }
+            while(!Character.isLetterOrDigit(sc[r])&&l<r){
+                r--;
+            }
+            if(l==r) continue;
+            if( Character.toLowerCase(sc[l])!=Character.toLowerCase(sc[r])) 
+               return false;
+            else{
+                l++;
+                r--;
+            }
+        }
+        return true;     
+   }
 }
 
 class Value {
