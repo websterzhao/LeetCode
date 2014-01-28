@@ -1,7 +1,7 @@
 package arrays;
 
 public class BestTimetoBuySellStockII {
-/*
+/* greedy algorithm
 * Scan the vector, add all the sub set which are non-decreasing order.
 e.g. 
 1 2 4 2 5 7 2 4 9 0 9
