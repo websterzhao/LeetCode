@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 import anode.TreeNode;
-
+//if the top node has been visited, pop it. 
+//if the top node's child = the latest popped node, either left or right, it must has been visited.)
 public class BinaryTreePostorderTraversal {
 	 public ArrayList<Integer> postorderTraversal(TreeNode root) {
 	        Stack<TreeNode> stk = new Stack<TreeNode>();
