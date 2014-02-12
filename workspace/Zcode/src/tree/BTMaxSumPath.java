@@ -4,7 +4,7 @@ import anode.TreeNode;
 
 public class BTMaxSumPath {
 	public int maxPathSum(TreeNode root) {
-		TreeNode max_s = new TreeNode(Integer.MIN_VALUE);
+		TreeNode max_s = new TreeNode(Integer.MIN_VALUE);//do not use Integer class since it is immutable 
 		dfs(root, max_s);
 		return max_s.val;
 	}
